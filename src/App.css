@@ -1,38 +1,501 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Roboto', sans-serif;
+   text-decoration: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+body {
+    background-color: #111010;
   }
+
+.max__width {
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: 0 auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.text-color {
+    color: #E50914;
+}
+
+.text-color1 {
+   color:   rgb(56, 181, 175);
+}
+
+
+/* 
+
+NAVBAR STYLE
+
+*/
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    padding: 30px 0;
+    transition: all 300ms ease;
+    z-index: 10000;
+}
+
+.navbar.sticky{
+    padding: 15px 0;
+    background-color: #1b1b1b
+}
+
+.navbar .max__width {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo .navbar__logo {
+    color: #fff;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.navbar .menu .navbar__li {
+    list-style: none;
+    display: inline-block;
+    
+}
+
+.navbar .menu .navbar__li .navbar__a {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: all 300ms ease;
+}
+
+.navbar .menu .navbar__li .navbar__a:hover{
+    color: #E50914;
+}
+
+
+/* 
+
+
+MENU STYLE
+
+*/
+
+.menu-btn {
+    font-size: 24x;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+/* 
+
+
+HOME STYLE
+
+*/
+
+.home {
+    display: flex;
+    align-items: center;
+    background: #111010;
+    height: 100vh;
+    color: #fff;
+    min-height: 500px;
+}
+
+.home .max__width {
+    margin: 0 auto;
+}
+
+.home .home-content .text-1 {
+    font-size: 200px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: -10px;
+}
+
+.home .home-content .text-2 {
+    text-align: left;
+    font-size: 40px;
+}
+
+
+ 
+/* 
+
+
+RESPONISIVE MEDIA QUE STYLE - MENU
+
+*/
+
+@media (max-width: 947px ){
+    .menu-btn {
+        display: block;
+        z-index: 1000;
+    }
+    .menu-btn i.active:before{
+        content: "\f00d";
+    }
+    .max__width {
+        padding: 0 50px;
+    }
+    .navbar .menu{
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left: -100%;
+        top: 0;
+        background-color: #111010;
+        text-align: center;
+        padding-top: 80px;
+        transition: all 300ms ease;
+    }
+    .navbar .menu.active{
+        left: 0;
+    }
+    .navbar .menu .navbar__li {
+        display: block;
+    }
+    .navbar .menu  .navbar__li .navbar__a {
+        display: inline-block;
+        margin: 20px 0;
+        font-size: 25px;
+    }
+    .home .home-content .text-1 {
+        font-size: 150px;
+    }
+    
+    .home .home-content .text-2 {
+        font-size: 16px;
+        text-align: center;
+
+    }
+}
+
+@media (max-width: 500px ) {
+    .home .home-content .text-1 {
+        font-size: 100px;
+    }
+    
+    .home .home-content .text-2 {
+        font-size: 16px;
+        text-align: center;
+
+    }
+}
+
+
+
+
+/* 
+
+
+SEARCH STYLE
+
+*/
+
+.max__place {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111010;
+    height: 100vh;
+    color: #fff;
+    min-height: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.home__intro {
+    font-size: 50px;
+}
+
+
+.home__search--para {
+    font-size: 20px;
+    text-align: center;
+}
+
+form{
+    position: relative;
+    bottom: -150px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+}
+
+input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+.fa{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #07051a;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+form:hover,
+form:valid{
+    width:400px;
+    cursor: pointer;
+}
+
+form:hover input,
+form:valid input{
+    display: block;
+}
+
+form:hover .fa,
+form:valid .fa{
+    background: #07051a;
+    color: white;
+}
+
+
+.home__search {
+  display: none;
+  position: absolute;
+  top: 70px;
+  bottom:0;
+  left: 0;
+  right: 0;
+  font-size: 20px;
   color: white;
+  text-align: center; 
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+form:valid a {
+  display: block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.home__logo {
+    text-align: center;
 }
+
+
+.home__logo-pic {
+   width: 450px;
+}
+
+ 
+
+
+/* 
+
+
+MOVIES STYLE
+
+*/
+
+.movie__trend {
+    color: #fff;
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.Mflexmovie {
+    background: #111010;
+    width: 100%;
+    padding-left: 40px;
+}
+
+.movies {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 50px;
+}
+
+.movie {
+    width: 20%;
+    padding: 24px;
+}
+
+.movie__img {
+    width: 100%;
+    transition: all 300ms ease;
+}
+
+.movies__wrapper {
+  margin-bottom: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.movie__description {
+    display: flex;
+    justify-content: space-between;
+    transform: all 300ms ease;
+    margin-top: 14px;
+    margin-bottom: 12px;
+}
+
+
+.movie__title {
+    color: #fff;
+    font-size: 12px;
+}
+
+
+.movie__year {
+    color: rgb(123, 160, 158);
+    transition: all 300ms ease;
+    font-size: 12px;
+}
+
+
+.movie__img:hover {
+    transform: scale(1.03);
+    filter: contrast(0.6);
+}
+ 
+
+.movie__description2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.movie__stats {
+    color: #fff;
+    font-size: 12px;
+    
+}
+
+.movie__statss {
+    font-size: 14px;
+    color:  rgb(181, 56, 56);
+}
+
+.fa-thumbs-up {
+    color: rgb(56, 181, 175);
+    font-size: 13px;
+}
+ 
+/* 
+
+DISCOVER
+
+*/
+
+
+.backDropimg {
+    width: 100%;
+    height: auto;
+    opacity: .6;
+  
+}
+
+.discover__backDrop {
+    background-size: cover;
+    position: relative;
+
+}
+
+.discover__wrapper--title {
+    
+   
+    position: absolute;
+    top: 50%;
+    left: 80px;
+}
+
+.discover__title {
+    font-size: 110px;
+    color: #e7d0d0;
+}
+
+.discover__title--para {
+    color: #fff7f7;
+    max-width: 700px;
+    font-size: 16px;
+    padding-left: 8px;
+  
+
+}
+
+.discover__title--releaseDate {
+    font-weight: 300;
+    color: rgb(92, 77, 77);
+    font-size: 14px;
+    padding-bottom: 2px;
+    padding-left: 6px;
+    font-family: monospace, consolas;
+}
+
+.discover__play {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 550;
+    padding: 0px 0px 0px  8px;
+    color: #000000;
+}
+
+
+
+.fa-play {
+
+    font-size: 18px;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 15px 38px;
+    background-color: rgb(255, 255, 255);
+    color: #080303;
+    border-radius: 4px;
+    
+}
+
+/*  
+
+
+LOG IN
+
+
+*/
+
+
+
+
+
+
